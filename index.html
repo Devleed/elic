@@ -17,7 +17,12 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
   </head>
+
   <body>
     <div class="wrapper">
       <div class="nav__secondary-horizontal">
@@ -683,9 +688,16 @@
             </div>
           </div>
         </section>
+
+        <div class="main-carousel">
+          <div class="carousel-cell">1st cell</div>
+          <div class="carousel-cell">2nd cell</div>
+          <div class="carousel-cell">3rd cell</div>
+        </div>
       </section>
     </div>
 
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script>
       const nav__checkbox = document.getElementById('nav__opener-btn');
       document.querySelector('.nav__content').addEventListener('click', e => {
@@ -712,6 +724,16 @@
       }, 4000);
 
       // ==============================================
+
+      [...document.getElementsByClassName('arrival__cards')].forEach(elem => {
+        console.log(elem);
+        new Flickity(elem, {
+          // options
+          cellAlign: 'left',
+          contain: true,
+          groupCells: true
+        });
+      });
     </script>
   </body>
 </html>
